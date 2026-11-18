@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#f7f9fc" />
+    <title>ScholarVault - Find Scholarships</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <header class="topbar">
+        <button class="brand" type="button" aria-label="Go to Discover" data-tab-target="discover">
+          <span class="brand-mark" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><path d="m12 3 9 5-9 5-9-5 9-5Zm-6 7.2v4.7c1.6 1.8 3.6 2.7 6 2.7s4.4-.9 6-2.7v-4.7l-6 3.3-6-3.3Zm12 5.3v3.7h2v-5l-2 1.3Z"/></svg>
+          </span>
+          <span>Scholar<span>Vault</span></span>
+        </button>
+        <button class="icon-btn notification-btn" type="button" aria-label="Notifications">
+          <svg viewBox="0 0 24 24"><path d="M18 16v-5a6 6 0 0 0-4.8-5.88V4a1.2 1.2 0 1 0-2.4 0v1.12A6 6 0 0 0 6 11v5l-2 2v1h16v-1l-2-2Zm-8.6 4h5.2a2.6 2.6 0 0 1-5.2 0Z"/></svg>
+          <span class="notification-dot"></span>
+        </button>
+      </header>
+
+      <main>
+        <section class="view active" id="discover-view">
+          <div class="hero">
+            <p class="eyebrow">Your future starts here</p>
+            <h1>Find your <span>perfect scholarship</span></h1>
+            <p class="hero-subtitle">Explore trusted opportunities from around the world.</p>
+
+            <label class="search-box" for="searchInput">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M10.5 4a6.5 6.5 0 1 0 3.95 11.66l4.2 4.2 1.41-1.41-4.2-4.2A6.5 6.5 0 0 0 10.5 4Zm0 2a4.5 4.5 0 1 1 0 9 4.5 4.5 0 0 1 0-9Z"/></svg>
+              <input id="searchInput" type="search" placeholder="Search scholarships or websites" autocomplete="off" />
+            </label>
+          </div>
+
+          <div class="ad-slot" aria-label="Advertisement">
+            <span class="ad-label">ADVERTISEMENT</span>
+            <div class="ad-content">
+              <span class="ad-icon">Ad</span>
+              <span>Sponsored placement</span>
+            </div>
+          </div>
+
+          <div class="category-row" id="categoryRow" aria-label="Scholarship categories">
+            <button class="category-pill active" type="button" data-category="all">All</button>
+            <button class="category-pill" type="button" data-category="international">International</button>
+            <button class="category-pill" type="button" data-category="usa">USA</button>
+            <button class="category-pill" type="button" data-category="uk">UK</button>
+            <button class="category-pill" type="button" data-category="europe">Europe</button>
+            <button class="category-pill" type="button" data-category="undergraduate">Undergraduate</button>
+            <button class="category-pill" type="button" data-category="graduate">Graduate</button>
+            <button class="category-pill" type="button" data-category="fully-funded">Fully funded</button>
+          </div>
+
+          <div class="section-heading">
+            <div>
+              <p class="section-kicker">CURATED DIRECTORY</p>
+              <h2>Top scholarship sources</h2>
+            </div>
+            <button class="text-btn" type="button" id="clearFilters">Clear filters</button>
+          </div>
+
+          <div class="source-grid" id="sourceGrid" aria-live="polite"></div>
+        </section>
+
+        <section class="view" id="saved-view">
+          <div class="page-header">
+            <p class="eyebrow">Your collection</p>
+            <h1>Saved sources</h1>
+          </div>
+          <div class="source-grid" id="savedGrid"></div>
+        </section>
+
+        <section class="view" id="guides-view">
+          <div class="page-header">
+            <p class="eyebrow">Application resources</p>
+            <h1>Scholarship guides</h1>
+          </div>
+          <div class="guide-grid">
+            <article class="guide-card"><span class="guide-number">01</span><div><h3>Build a strong profile</h3><p>Collect transcripts, references, and a clear achievement timeline.</p></div></article>
+            <article class="guide-card"><span class="guide-number">02</span><div><h3>Write with purpose</h3><p>Connect your goals to the scholarship mission and impact.</p></div></article>
+            <article class="guide-card"><span class="guide-number">03</span><div><h3>Check every deadline</h3><p>Track requirements and submit documents well before closing.</p></div></article>
+            <article class="guide-card"><span class="guide-number">04</span><div><h3>Apply broadly</h3><p>Use a mix of high-value, local, and niche scholarship sources.</p></div></article>
+          </div>
+        </section>
+
+        <section class="view" id="profile-view">
+          <div class="profile-card">
+            <div class="profile-avatar">SV</div>
+            <h1>Scholarship seeker</h1>
+            <p>Set up your preferences to find better matches.</p>
+            <button class="primary-btn" type="button" id="setupBtn">Set preferences</button>
+          </div>
+          <div class="settings-list">
+            <button type="button"><span>Study level</span><strong>Not set</strong><b>›</b></button>
+            <button type="button"><span>Preferred destination</span><strong>Not set</strong><b>›</b></button>
+            <button type="button"><span>Field of study</span><strong>Not set</strong><b>›</b></button>
+          </div>
+        </section>
+      </main>
+
+      <nav class="bottom-nav" aria-label="Main navigation">
+        <button class="nav-item active" type="button" data-tab-target="discover">
+          <svg viewBox="0 0 24 24"><path d="M12 3a9 9 0 1 0 9 9 9 9 0 0 0-9-9Zm3.75 5.25-2.1 5.4-5.4 2.1 2.1-5.4 5.4-2.1Z"/></svg><span>Discover</span>
+        </button>
+        <button class="nav-item" type="button" data-tab-target="saved">
+          <svg viewBox="0 0 24 24"><path d="M6 3h12a1 1 0 0 1 1 1v17l-7-4-7 4V4a1 1 0 0 1 1-1Z"/></svg><span>Saved</span>
+        </button>
+        <button class="nav-item" type="button" data-tab-target="guides">
+          <svg viewBox="0 0 24 24"><path d="M4 5.5A2.5 2.5 0 0 1 6.5 3H11v16H6.5A2.5 2.5 0 0 0 4 21V5.5Zm16 0A2.5 2.5 0 0 0 17.5 3H13v16h4.5A2.5 2.5 0 0 1 20 21V5.5Z"/></svg><span>Guides</span>
+        </button>
+        <button class="nav-item" type="button" data-tab-target="profile">
+          <svg viewBox="0 0 24 24"><path d="M12 12a5 5 0 1 0-5-5 5 5 0 0 0 5 5Zm0 2c-4.42 0-8 2.24-8 5v2h16v-2c0-2.76-3.58-5-8-5Z"/></svg><span>Profile</span>
+        </button>
+      </nav>
+    </div>
+    <script src="./app.js"></script>
+  </body>
+</html>
